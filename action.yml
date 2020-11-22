@@ -1,11 +1,9 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+name: 'Auto Release Draft'
+description: 'Drafts a GH release with changes introduced'
+author: 'That dude who spends his Sundays learning stuff'
+outputs:
+  release-url:
+    description: 'The URL of the GH release that was drafted'
 runs:
   using: 'node12'
   main: 'dist/index.js'

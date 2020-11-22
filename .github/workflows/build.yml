@@ -1,0 +1,20 @@
+name: 'build'
+on: # rebuild any PRs and main branch changes
+  push:
+    branches:
+      - main
+
+jobs:
+  build: # make sure build/ci work properly
+    name: 'Build'
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@v1
+      - name: Restore the dependencies
+        run: npm build/ci
+      - name: Build
+        run: npm run all
